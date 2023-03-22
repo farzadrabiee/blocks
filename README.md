@@ -20,3 +20,9 @@ npm init @eslint/config
 npm install --save-dev eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
 
 ```
+
+* **Validator**
+```
+npm i validator
+npm i --save-dev @types/validator
+```
