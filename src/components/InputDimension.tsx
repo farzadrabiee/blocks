@@ -32,7 +32,9 @@ const InputDimension = () => {
                     <input type={"number"} id={"col"} name={"col"} onChange={handleChange}
                            className={"w-16 p-1 border border-sky-500"} minLength={1} maxLength={1} required/>
                 </fieldset>
-                <button type={"submit"} className={"m-2 p-2 font-bold border border-sky-500 rounded-none hover:rounded-lg"}>Submit</button>
+                <button type={"submit"}
+                        className={"m-2 p-2 font-bold border border-sky-500 rounded-none hover:rounded-lg"}>Submit
+                </button>
             </form>
         </div>
     );
