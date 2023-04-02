@@ -1,22 +1,35 @@
-import React, {FormEvent, useState} from 'react';
+import React, {useState} from 'react';
 import Validator from 'validator';
+import DrawTable from "./table/DrawTable";
+import {Row} from "./table/Row";
 
 const InputDimension = () => {
-    const [rowValue, setRowValue] = useState(0);
-    const [colValue, setColValue] = useState(0);
+    const [rowValue, setRowValue] = useState(-1);
+    const [colValue, setColValue] = useState(-1);
     const [error, setError] = useState(false);
+    const tempRow = [
+        {id: 1, value: 'One'},
+        {id: 2, value: 'Two'}
+    ]
 
     const handleSubmit = (event: React.FormEvent<any>) => {
         event.preventDefault();
 
-        console.info({error})
+        if (error)
+            return;
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.id)
         if (!Validator.isNumeric(e.target.value))
             setError(true);
-        else
+        else {
             setError(false)
+
+            if (e.target.id === 'row')
+                setRowValue(Number(e.target.value))
+
+            if (e.target.id === 'col')
+                setColValue(Number(e.target.value))
+        }
     }
 
     return (
@@ -36,6 +49,7 @@ const InputDimension = () => {
                         className={"m-2 p-2 font-bold border border-sky-500 rounded-none hover:rounded-lg"}>Submit
                 </button>
             </form>
+            { !error && rowValue && colValue && <DrawTable rows={tempRow}/>}
         </div>
     );
 }

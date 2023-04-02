@@ -6,7 +6,7 @@ function App() {
     return (
         <div className="flex flex-col items-start">
             <p className="m-2 p-2 text-xl font-bold">Blocks dimension</p>
-            <InputDimension/>
+            <InputDimension />
         </div>
     );
 }
