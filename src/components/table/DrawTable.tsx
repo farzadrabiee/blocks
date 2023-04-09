@@ -1,18 +1,13 @@
 import React from 'react';
-import {Row} from "./Row";
+import TableRows from "./TableRows";
+import {Col, Row} from "./CellTypes";
 
-const DrawTable = ({rows}: { rows: Array<Row> }) => {
+const DrawTable = ({row}: { row: Array<Row> }, {col}: { col: Array<Col> }) => {
     return (
         <>
             <table className={"table-fixed shadow-lg bg-white"}>
-                <thead>
-                <tr>
-                    <th className={"border p-2"}>ID</th>
-                    <th className={"border p-2"}>Value</th>
-                </tr>
-                </thead>
                 <tbody>
-                    {rows.map(r => <tr key={r.id}><td className={"border p-2"}>{r.id}</td><td className={"border p-2"}>{r.value}</td></tr>)}
+                <TableRows row={row} col={col}></TableRows>
                 </tbody>
             </table>
         </>

@@ -1,15 +1,20 @@
 import React, {useState} from 'react';
 import Validator from 'validator';
 import DrawTable from "./table/DrawTable";
-import {Row} from "./table/Row";
+import {Col, Row} from "./table/CellTypes";
 
 const InputDimension = () => {
     const [rowValue, setRowValue] = useState(-1);
     const [colValue, setColValue] = useState(-1);
     const [error, setError] = useState(false);
-    const tempRow = [
-        {id: 1, value: 'One'},
-        {id: 2, value: 'Two'}
+    const tempRow: Array<Row> = [
+        {row: 0},
+        {row: 1}
+    ]
+
+    const tempCol: Array<Col> = [
+        {col: 0},
+        {col: 1}
     ]
 
     const handleSubmit = (event: React.FormEvent<any>) => {
@@ -49,7 +54,7 @@ const InputDimension = () => {
                         className={"m-2 p-2 font-bold border border-sky-500 rounded-none hover:rounded-lg"}>Submit
                 </button>
             </form>
-            { !error && rowValue && colValue && <DrawTable rows={tempRow}/>}
+            { !error && rowValue && colValue && <DrawTable row={tempRow} col={tempCol}/>}
         </div>
     );
 }
