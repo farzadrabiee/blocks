@@ -1,13 +1,13 @@
 import React from 'react';
 import TableRows from "./TableRows";
-import {Col, Row} from "./CellTypes";
+import {IRowCol} from "./IRowCol";
 
-const DrawTable = ({row}: { row: Array<Row> }, {col}: { col: Array<Col> }) => {
+const DrawTable = ({rowCol}: { rowCol: IRowCol }) => {
     return (
         <>
             <table className={"table-fixed shadow-lg bg-white"}>
                 <tbody>
-                <TableRows row={row} col={col}></TableRows>
+                <TableRows rowCol={rowCol} />
                 </tbody>
             </table>
         </>

@@ -1,16 +1,19 @@
 import React from 'react';
-import {Col, Row} from "./CellTypes";
+import {IRowCol} from "./IRowCol";
 import TableCols from "./TableCols";
 
-const TableRows = ({row}: { row: Array<Row> }, {col}: { col: Array<Col> }) => {
+const TableRows = ({rowCol}: { rowCol: IRowCol }) => {
+    const rows: Array<number> = [];
+    for (let i = 0; i < rowCol.row; i++)
+        rows.push(i);
+
     return (
         <>
             {
-                row.map(r => {
-                        <tr key={r.row} className="text-xl p-1.5 border-4 border-amber-600">
-                            <TableCols col={col}></TableCols>
-                        </tr>
-                    }
+                rows.map(r =>
+                    <tr key={r}>
+                        <TableCols rowCol={rowCol}/>
+                    </tr>
                 )
             }
         </>
