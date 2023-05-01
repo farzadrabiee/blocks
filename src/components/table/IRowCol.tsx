@@ -1,4 +1,4 @@
 export interface IRowCol {
-    row: number,
-    col: number
+    row: number;
+    col: number;
 }
